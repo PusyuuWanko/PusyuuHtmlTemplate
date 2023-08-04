@@ -1,1 +1,3 @@
-# PusyuuHtmlTemplate
+#PusyuuHtmlTemplateとは？
+1.プシューが作成したHTMLテンプレートをオープンに置いておく場所です。
+2.無料で誰でも使用することができます。ただし完全自己責任でご使用ください。
