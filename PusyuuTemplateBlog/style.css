@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #1a1a1a;
+  background: #f6f5f4;
+}
+
+ /*----------------------------------
+  | CSSバージョン :v1.2            |
+  | ラストアップデート: 2023-06-08 |
+  | © 2022-2022 by Pusyuu          |
+  | ・。・プシューテンプレ㌨       |
+-----------------------------------*/
+
+/* 色、模様、サイズ、調整部
+-------------------------------------------------------------*/
+
+h1 {color: #000000; }
+h2 {color: #000000; }
+h3 {color: #000000; }
+p  {color: #000000; }
+th {color: #000000; }
+td {color: #000000; }
+li {color: #000000; }
+
+/* ヘッダー調整部
+-------------------------------------------------------------*/
+
+.header {
+  background-color: #FFF000;
+  width: 100%;
+  height: 75px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+/* ヘッダー上のナビゲーション調整部
+-------------------------------------------------------------*/
+
+.header_nav {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: inherit;
+  position: relative;
+}
+
+/* ヘッダーロゴ調整部
+-------------------------------------------------------------*/
+
+.header_logo {
+  width: 100px;
+}
+
+.header_logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* メイン調整部
+-------------------------------------------------------------*/
+
+.main {
+  margin-top: 75px;
+  background-color: #ff8000;
+  margin-top: 75px;
+  height: auto;
+  display: flex;
+}
+
+/* フッター調整部
+-------------------------------------------------------------*/
+
+.footer {
+  background-color: #cccccc;
+  height: 200px;
+  display: flex;
+}
+
+/* 親要素周りの余白
+-------------------------------------------------------------*/
+
+.main_yohaku {
+margin: auto;
+}
+
+.footer_yohaku {
+margin: auto;
+}
+
+/* ナビゲーションバー調整部
+-------------------------------------------------------------*/
+
+.navbar {
+  padding: 0;
+}
+.navbar ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+.navbar ul li {
+  margin: 10px;
+}
+
+/* ハンバーガーメニュー隠し調整部
+-------------------------------------------------------------*/
+
+.menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px ;
+  display: none;
+  height: 60px;
+  width:60px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background-color: #3584bb;
+}
+
+/* ハンバーガーメニュー、線の調整部
+-------------------------------------------------------------*/
+
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+}
+
+.menu-btn span:before {
+  bottom: 8px;
+}
+
+.menu-btn span:after {
+  top: 8px;
+}
+
+/* ハンバーガーメニュー×ボタン調整部
+-------------------------------------------------------------*/
+
+#menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+#menu-btn-check {
+  display: none;
+}
+
+#menu-btn-check:checked ~ .menu-content {
+  left: 0;
+}
+
+/* ハンバーガーメニュー、チェックボックス隠し
+-------------------------------------------------------------*/
+
+#menu-btn-check {
+  display: none;
+}
+
+/* レスポンシブ化調整部
+-------------------------------------------------------------*/
+
+@media only screen and (max-width:999px){
+
+/* ハンバーガーメニュー、ボタン調整部
+-------------------------------------------------------------*/
+
+.menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px ;
+  display: flex;
+  height: 60px;
+  width:60px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background-color: #3584bb;
+}
+
+/* ハンバーガーメニュー、ナビゲーション調整部
+-------------------------------------------------------------*/
+
+.menu-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  z-index: 80;
+  background-color: #3584bb;
+  transition: all 0.5s;
+}
+
+.menu-content ul {
+  padding: 70px 10px 0;
+  display: block;
+}
+
+.menu-content ul li {
+  border-bottom: solid 1px #ffffff;
+  list-style: none;
+  display: flex;
+}
+
+.menu-content ul li a {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  box-sizing: border-box;
+  color:#ffffff;
+  text-decoration: none;
+  padding: 9px 15px 10px 0;
+  position: relative;
+}
+
+.menu-content ul li a::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-top: solid 2px #ffffff;
+  border-right: solid 2px #ffffff;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 11px;
+  top: 16px;
+}
+
+/* sm tb版 親要素周りの余白
+-------------------------------------------------------------*/
+
+.main_yohaku {
+margin: 15px;
+footer: auto;
+}
+}
