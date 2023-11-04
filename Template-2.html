@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=6.0, minimum-scale=1.0">
+  <title>test page</title>
+  <!--
+      *----------------------------------
+      |  ThisPageVersion: 1.0.0     　 |
+      |  © 2021-2023 By Pusyuu        |
+      |  LastUpdate: 2023-11-04       |
+      |  License: MIT License         |
+      |  ・。・プシューテンプレ㌨     |
+    ----------------------------------*
+    -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .show {
+      position: relative;
+      width: auto;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .show > video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      min-width: 100%;
+      min-height: 100%;
+    }
+    .show > div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 80%;
+      height: 80%;
+      background-color: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .show > div div strong {
+      font-size: 50px;
+    }
+    .show > div div p {
+      position: absolute;
+      bottom: 10%;
+      left: 45%;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255,255,255,0.8);
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 0.5px solid #000;
+    }
+    main {
+      padding: 15px;
+      /* ↓お飾り余白　メインタグがあふれてしまった場合は100vhからautoに変更してください。 */
+      height: 100vh;
+    }
+    footer {
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+    }
+    ul {
+      display: flex;
+      justify-content: flex-end;
+    }
+    li {
+      list-style: none;
+      padding: 5px;
+    }
+    a {
+      text-decoration: none;
+      color: #111;
+      transition: all 0.5s;
+      font-size: 20px;
+    }
+    a:hover {
+      color: rgb(0,255,0);
+      border-bottom: 1px solid #00ff00;
+    }
+    .banner {
+      font-size: 20px;
+      magin: 10px 0 10px;
+    }
+    #menu-btn-check {
+      display: none;
+    }
+    @media only screen and (max-width:700px){
+      .menu-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        height: 45px;
+        width: 45px;
+        justify-content: center;
+        align-items: center;
+        z-index: 90;
+        background-color: #111111;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .menu-btn span,
+      .menu-btn span:before,
+      .menu-btn span:after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 20px;
+        border-radius: 3px;
+        background-color: #0080ff;
+        position: absolute;
+        transition: all 0.45s;
+      }
+      .menu-btn span:before {
+        bottom: 8px;
+      }
+      .menu-btn span:after {
+        top: 8px;
+      }
+      #menu-btn-check:checked ~ .menu-btn span {
+        background-color: rgba(255, 255, 255, 0);
+      }
+      #menu-btn-check:checked ~ .menu-btn span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+      }
+      #menu-btn-check:checked ~ .menu-btn span::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+      #menu-btn-check:checked ~ .menu-content {
+        left: 0;
+      }
+      .menu-content {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        z-index: 80;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(0,0,0,0.5);
+        transition: all 0.45s;
+      }
+      .menu-content ul {
+        padding: 100px 10px 0;
+        display: block;
+      }
+      .menu-content ul li {
+        border-bottom: solid 1px #2b00ff;
+        list-style: square;
+        display: flex;
+      }
+      .menu-content ul li a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-size: 15px;
+        box-sizing: border-box;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 9px 15px 10px 0;
+        position: relative;
+      }
+      .menu-content ul li a::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-top: solid 2px #ffffff;
+        border-right: solid 2px #ffffff;
+        transform: rotate(45deg);
+        position: absolute;
+        right: 11px;
+        top: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="show">
+    <video src="https://21emon.wjg.jp/SystemFolder/VideoData/old-Show-video.mp4" muted autoplay loop></video>
+    <div>
+      <div>
+        <strong>見出し</strong>
+        <p>スクロール↓</p>
+      </div>
+    </div>
+  </div>
+  <header>
+    <h1 class="banner">test page</h1>
+    <input type="checkbox" id="menu-btn-check">
+    <label for="menu-btn-check" class="menu-btn"><span></span><span></span></span></label>
+    <div class="menu-content">
+    <nav>
+      <ul>
+        <li><a href="#">アンカーリンク</a></li>
+        <li><a href="#">アンカーリンク</a></li>
+        <li><a href="#">アンカーリンク</a></li>
+        <li><a href="#">アンカーリンク</a></li>
+        <li><a href="#">アンカーリンク</a></li>
+        <li><a href="#">アンカーリンク</a></li>
+      </ul>
+    </nav>
+  </div>
+  </header>
+  <main>
+    <h1>とりあえずHTML</h1>
+    <p>段落　なんとなくHTML</p>
+    <video src="動画のアドレス.mp4" controls>このブラウザ派ではHTML5ビデオを再生することはできません。</p></video>
+  </main>
+  <footer>
+    <smoll>©あなたのコピーライト<smoll>
+  </footer>
+</body>
+</html>
